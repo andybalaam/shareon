@@ -25,28 +25,30 @@ function shareOnMastodon(d) {
   // Inspired by https://www.256kilobytes.com/content/show/4812/
   // License: "Feel free to use and/or modify this code on your site"
 
-  var default_instance = (
-      localStorage['mastodon_instance'] || "https://mastodon.social");
+  const defaultInstance = (
+    localStorage['mastodon.instance'] || 'https://mastodon.social'
+  );
 
-  var instance = prompt(
-      "Enter the address of your Mastodon instance", default_instance);
+  let instance = prompt(
+    'Enter the address of your Mastodon instance', defaultInstance
+  );
 
   if (instance) {
     if (
-      ! (
-        instance.startsWith("https://")
-        || instance.startsWith("http://")
+      !(
+        instance.startsWith('https://')
+        || instance.startsWith('http://')
       )
     ) {
-      instance = "https://" + instance;
+      instance = 'https://' + instance;
     }
-    if (!instance.endsWith("/")) {
-      instance = instance + "/";
+    if (!instance.endsWith('/')) {
+      instance = instance + '/';
     }
 
-    localStorage['mastodon_instance'] = instance;
+    localStorage['mastodon.instance'] = instance;
 
-    var toot = `${d.title}\n${d.url}`;
+    let toot = `${d.title}\n${d.url}`;
     if (d.text) {
       toot += `\n${d.text}`;
     }
@@ -56,12 +58,12 @@ function shareOnMastodon(d) {
 
     const mastodon_url = (
       instance
-      + "share?text="
+      + 'share?text='
       + encodeURIComponent(toot)
     );
 
     window.open(mastodon_url, '_blank', 'noopener,noreferrer');
-}
+  }
 }
 
 /**
