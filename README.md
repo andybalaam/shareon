@@ -87,6 +87,7 @@ classes match the names of social networks:
 <div class="shareon">
     <a class="facebook"></a>
     <a class="linkedin"></a>
+    <a class="mastodon"></a>
     <a class="messenger"></a>
     <a class="odnoklassniki"></a>
     <a class="pinterest"></a>
@@ -118,7 +119,7 @@ Apart from the URL and title, some networks support extra parameters:
 
 - add `data-media` to an Odnoklassniki, Pinterest, or VK button to customize the pinned picture
 - add `data-text` to a WhatsApp, Telegram or Viber button to add custom message text
-- add `data-via` to a Twitter button to mention a user
+- add `data-via` to a Twitter or Mastodon button to mention a user
 
 Here are all the custom parameters in their glory:
 
@@ -129,6 +130,7 @@ Here are all the custom parameters in their glory:
     <a class="pinterest" data-media="https://picsum.photos/500">Pin</a>
     <a class="telegram" data-text="Check this out!"></a>
     <a class="twitter" data-via="MyNickname"></a>
+    <a class="mastodon" data-via="@MyNickname@myserver.social"></a>
     <a class="whatsapp">Send</a>
 </div>
 ```
